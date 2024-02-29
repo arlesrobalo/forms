@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Atestado de Saúde Ocupacional</title>
-    <link rel="stylesheet" href="caminho/para/seu/styles.css"> <!-- Atualize com o caminho correto do seu arquivo CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Referência ao seu arquivo CSS externo -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 
 <div class="container">
     <h2>Atestado de Saúde Ocupacional</h2>
-    <form id="health-certificate-form">
+    <form id="health-form" action="your-backend-script" method="post">
         <!-- Campos do formulário -->
         <label for="exam-type">Tipo de exame:</label>
         <select id="exam-type" name="exam_type" required>
@@ -59,12 +61,31 @@
             <label for="agree">Eu concordo com as Políticas de Privacidade</label>
         </div>
         
-        <button type="submit">Enviar</button>
+       <button type="submit">Enviar</button>
     </form>
 </div>
 
-<script
+<script>
+$(document).ready(function(){
+    // Aplicar máscaras de input aqui
+    $('#cpf').mask('000.000.000-00', {reverse: true});
+    $('#phone').mask('+00 (00) 00000-0000');
+    $('#birthdate').mask('00/00/0000');
+    $('#cnpj').mask('00.000.000/0000-00', {reverse: true});
+    $('#pis').mask('000.00000.00-0', {reverse: true});
 
+    // Inicializar o datepicker
+    $('#birthdate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "-100:+0"
+    });
+});
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
