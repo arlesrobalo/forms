@@ -7,75 +7,46 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <style>
-      body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-}
-
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-select,
-button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    display: block;
-    width: auto;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-        padding: 10px;
-    }
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        h2, label {
+            color: #333;
+        }
+        input[type=text], input[type=email], input[type=tel], select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+        .checkbox-group input {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -83,69 +54,58 @@ button:hover {
 <div class="container">
     <h2>Atestado de Saúde Ocupacional</h2>
     <form id="health-certificate-form">
-        <!-- Tipo de exame -->
-        <div class="form-group">
-            <label for="exam-type">Tipo de exame:</label>
-            <select id="exam-type" name="exam-type" required>
-                <option value="">Escolha um exame</option>
-                <!-- Adicione mais opções aqui -->
-            </select>
+        <!-- Campos do formulário -->
+        <label for="exam-type">Tipo de exame:</label>
+        <select id="exam-type" name="exam_type" required>
+            <option value="">Escolha um exame</option>
+            <option value="tipo1">Tipo 1</option>
+            <option value="tipo2">Tipo 2</option>
+        </select>
+        
+        <label for="first-name">Nome do Funcionário:</label>
+        <input type="text" id="first-name" name="first_name" required>
+        
+        <label for="last-name">Sobrenome do Funcionário:</label>
+        <input type="text" id="last-name" name="last_name" required>
+        
+        <label for="cpf">CPF do Funcionário:</label>
+        <input type="text" id="cpf" name="cpf" required class="cpf-mask">
+        
+        <label for="birthdate">Data de Nascimento:</label>
+        <input type="text" id="birthdate" name="birthdate" required class="birthdate-mask">
+        
+        <label for="phone">Telefone (com DDI+DDD):</label>
+        <input type="text" id="phone" name="phone" required class="phone-mask">
+        
+        <label for="pis">PIS:</label>
+        <input type="text" id="pis" name="pis" required class="pis-mask">
+        
+        <label for="company-phone">Telefone da Empresa:</label>
+        <input type="text" id="company-phone" name="company_phone" class="phone-mask">
+        
+        <label for="company-email">Email da Empresa:</label>
+        <input type="email" id="company-email" name="company_email">
+        
+        <label for="accounting-email">Email Contabilidade (opcional):</label>
+        <input type="email" id="accounting-email" name="accounting_email">
+        
+        <label for="company-name">Razão Social (Cartão CNPJ):</label>
+        <input type="text" id="company-name" name="company_name" required>
+        
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" required class="cnpj-mask">
+        
+        <div class="checkbox-group">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">Eu concordo com as Políticas de Privacidade</label>
         </div>
         
-        <!-- Nome do funcionário -->
-        <div class="form-group">
-            <label for="first-name">Nome do Funcionário:</label>
-            <input type="text" id="first-name" name="first-name" required>
-        </div>
-        
-        <!-- Sobrenome do funcionário -->
-        <div class="form-group">
-            <label for="last-name">Sobrenome do Funcionário:</label>
-            <input type="text" id="last-name" name="last-name" required>
-        </div>
-        
-        <!-- CPF com máscara -->
-        <div class="form-group">
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" class="cpf-mask" required>
-        </div>
-        
-        <!-- Data de nascimento com máscara e datepicker -->
-        <div class="form-group">
-            <label for="birth-date">Data de Nascimento:</label>
-            <input type="text" id="birth-date" name="birth-date" class="date-mask" required>
-        </div>
-        
-        <!-- Telefone com máscara -->
-        <div class="form-group">
-            <label for="phone">Telefone:</label>
-            <input type="text" id="phone" name="phone" class="phone-mask" required>
-        </div>
-        
-        <!-- PIS com máscara -->
-        <div class="form-group">
-            <label for="pis">PIS:</label>
-            <input type="text" id="pis" name="pis" class="pis-mask" required>
-        </div>
-        
-        <!-- Outros campos -->
-        <!-- ... -->
-
         <button type="submit">Enviar</button>
     </form>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $('.cpf-mask').mask('000.000.000-00', {reverse: true});
-        $('.date-mask').mask('00/00/0000');
-        $('.phone-mask').mask('+00 (00) 00000-0000');
-        $('.pis-mask').mask('000.00000.00-0', {reverse: true});
-        $('.cnpj-mask').mask('00.000.000/0000-00', {reverse: true});
-        
-        // Adicione aqui mais máscaras se necessário
-    });
-</script>
+<script
+
 
 </body>
 </html>
