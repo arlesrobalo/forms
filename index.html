@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Atestado de Saúde Ocupacional</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Referência ao seu arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -62,13 +62,13 @@
             <label for="agree">Eu concordo com as Políticas de Privacidade</label>
         </div>
         
-       <button type="submit">Enviar</button>
+          <button type="submit">Enviar</button>
     </form>
 </div>
 
 <script>
 $(document).ready(function(){
-    // Aplicar máscaras de input aqui
+    // Aplicar máscaras de input
     $('#cpf').mask('000.000.000-00', {reverse: true});
     $('#phone').mask('+00 (00) 00000-0000');
     $('#birthdate').mask('00/00/0000');
@@ -84,9 +84,7 @@ $(document).ready(function(){
     });
 });
 </script>
-
-</body>
-</html>
+<script src="script.js"></script>
 
 </body>
 </html>
