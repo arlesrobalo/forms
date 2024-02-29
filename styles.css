@@ -1,9 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background-color: #f4f4f4;
     padding: 20px;
 }
-
 .container {
     background: #fff;
     padding: 20px;
@@ -11,19 +10,16 @@ body {
     max-width: 800px;
     margin: 20px auto;
 }
-
 h2, label {
     color: #333;
 }
-
 input[type=text], input[type=email], input[type=tel], select, button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin: 5px 0 20px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
 button {
     background-color: #4CAF50;
     color: white;
@@ -33,20 +29,12 @@ button {
     cursor: pointer;
     width: 100%;
 }
-
 button:hover {
     background-color: #45a049;
 }
-
 .checkbox-group {
     margin-bottom: 20px;
 }
-
 .checkbox-group input {
     margin-right: 5px;
-}
-
-/* Adicione classes para máscaras de input */
-.cpf-mask, .date-mask, .phone-mask, .cnpj-mask {
-    /* Estilos para as máscaras, se necessário */
 }
