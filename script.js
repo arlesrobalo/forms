@@ -1,12 +1,20 @@
+$(document).ready(function(){
+  $('#health-form').submit(function(event) {
+    event.preventDefault(); // Para evitar o envio direto do formulário
 
- const form = document.forms['submit-to-google-sheet'];
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    fetch('https://script.google.com/macros/s/AKfycbx56V6WtCIq2KYc24dqw1kJxZOwOEqEeuNR9MhhahcPwbFnzJW4lm1xIBAJnQ7l5Ll7/exec', {
-      method: 'POST',
-      body: new FormData(form),
-    })
-    .then(response => response.json())
-    .then(response => alert('Formulário enviado com sucesso!'))
-    .catch(error => console.error('Erro ao enviar o formulário:', error));
+    var formData = $(this).serialize();
+    $.ajax({
+      type: 'POST',
+      url: 'https://script.google.com/macros/s/AKfycbzwgcPGZ1vv0ngobq70eGVuoGh8WOU7KulLoFw8kZHOI6Zadg9Lum1dYK-w5p2SS4wv/exec',
+      data: formData,
+      dataType: 'json', // Espera-se que a resposta seja JSON
+      success: function(response) {
+        alert('Formulário enviado com sucesso!');
+        // Aqui você pode redirecionar a página ou limpar o formulário
+      },
+      error: function(error) {
+        alert('Houve um erro ao enviar o formulário.');
+      }
+    });
   });
+});
