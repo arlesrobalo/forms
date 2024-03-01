@@ -1,25 +1,19 @@
 $(document).ready(function(){
   $('#health-form').submit(function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+    event.preventDefault(); // Para evitar o envio direto do formulário
 
-    var formData = $(this).serialize(); // Serializa os dados do formulário
+    var formData = $(this).serialize();
     $.ajax({
       type: 'POST',
-      url: $(this).attr('action'), // Usa a URL do atributo action do formulário
+      url: 'URL_DA_WEB_APP',
       data: formData,
       dataType: 'json', // Espera-se que a resposta seja JSON
       success: function(response) {
-        if(response.result === "success") {
-          alert("Formulário enviado com sucesso!");
-          // Aqui você pode redirecionar o usuário ou limpar o formulário
-          // window.location.href = "pagina_de_sucesso.html";
-          // $('#health-form').trigger("reset");
-        } else {
-          alert("Houve um problema ao enviar o formulário.");
-        }
+        alert('Formulário enviado com sucesso!');
+        // Aqui você pode redirecionar a página ou limpar o formulário
       },
       error: function(error) {
-        alert('Erro na comunicação com o servidor.');
+        alert('Houve um erro ao enviar o formulário.');
       }
     });
   });
