@@ -19,10 +19,11 @@ $(document).ready(function(){
           alert("Houve um problema ao enviar o formulário.");
         }
       },
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.error("Erro na comunicação com o servidor: ", textStatus, errorThrown);
-        alert('Erro na comunicação com o servidor.');
-      }
+error: function(jqXHR, textStatus, errorThrown) {
+  console.error("Erro na comunicação com o servidor: ", textStatus, errorThrown);
+  console.log(jqXHR.responseText); // Adicione esta linha para ver a resposta do servidor
+  alert('Houve um erro ao enviar o formulário.');
+}
     });
   });
 });
