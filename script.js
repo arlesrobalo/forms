@@ -5,7 +5,7 @@ $(document).ready(function(){
     var formData = $(this).serialize();
     $.ajax({
       type: 'POST',
-      url: 'URL_DA_WEB_APP',
+      url: 'https://script.google.com/macros/s/AKfycbyNb5ZGU_9Mb4thYD5TbleOZeU_dMIiGtOh3cvm4VlhBA75FqsGY_5JsCpILjISk3su/exec',
       data: formData,
       dataType: 'json', // Espera-se que a resposta seja JSON
       success: function(response) {
