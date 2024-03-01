@@ -64,26 +64,15 @@
         
         <button type="submit">Enviar</button>
     </form>
+
+    <div id="confirmation-section" style="display: none;">
+        <h3>Confirme suas respostas:</h3>
+        <div id="responses"></div>
+        <button id="confirm-button">Confirmar e Enviar</button>
+        <button id="edit-button">Corrigir</button>
+    </div>
 </div>
 
-<script>
-$(document).ready(function(){
-    // Aplicar máscaras de input
-    $('#cpf').mask('000.000.000-00', {reverse: true});
-    $('#phone').mask('+00 (00) 00000-0000');
-    $('#birthdate').mask('00/00/0000');
-    $('#cnpj').mask('00.000.000/0000-00', {reverse: true});
-    $('#pis').mask('000.00000.00-0', {reverse: true});
-
-    // Inicializar o datepicker
-    $('#birthdate').datepicker({
-        dateFormat: 'dd/mm/yy',
-        changeMonth: true,
-        changeYear: true,
-        yearRange: "-100:+0"
-    });
-});
-</script>
 <script src="script.js"></script>
 
 </body>
