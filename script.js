@@ -7,10 +7,9 @@ $(document).ready(function(){
       type: 'POST',
       url: $(this).attr('action'), // Usa a URL do atributo action do formulário
       data: formData,
+      dataType: 'json', // Espera-se que a resposta seja JSON
       success: function(response) {
-        // Converte a resposta para JSON, se ainda não estiver convertida
-        var res = typeof response === 'string' ? JSON.parse(response) : response;
-        if(res.result === "success") {
+        if(response.result === "success") {
           alert("Formulário enviado com sucesso!");
           // Aqui você pode redirecionar o usuário ou limpar o formulário
           // window.location.href = "pagina_de_sucesso.html";
